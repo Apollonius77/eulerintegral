@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>A General Solution for an Euler-Power of n Integral</title>
+  </head>
+  <body>
+    <h1>A General Solution for an Euler-Power of n Integral</h1>
+    <h2>Universidad Adolfo Ibañez</h2>
+    <h3>January 3rd 2024</h3>
+    <h4>Manuel Ignacio Campos</h4>
+    <p>
+Introduction
+
+In Integral Calculus and Ordinary Differential Equations, to reach the solution of a particular problem, it is usual to use the integration by parts method where in some cases, its development can be very extensive, so therefore in this article a general solution will be established for an integral that is the product between a power of degree n and an exponential function of base e. 
+
+Preliminary
+
+To establish the general solution for the integral, the first thing we will have to do is define the derivative of order k of a power of degree n which is
+
+\frac{d^kx^n}{{dx}^k}=\frac{n!}{(n-k)!}\ x^{n-k}
+
+
+With n\in\ \mathbb{N},\ k\in\mathbb{N}\ \cup{0}\ and\ k\le n
+
+But how we can prove this statement? Well, we are going to take the previous definition and take n values of k 
+
+For k=0
+
+\frac{d^0}{{dx}^0}=\frac{n!}{(n-0)!}\ x^{n-0}=\frac{n!}{n!}\ x^n=x^n
+
+For k=1
+\frac{d}{dx}=\frac{n!}{(n-1)!}\ x^{n-1}=\frac{n(n-1)(n-2)(n-3)...1}{(n-1)(n-2)(n-3)...1}\ x^{n-1}={nx}^{n-1}
+For k=2
+
+\frac{d^2}{{dx}^2}=\frac{n!}{(n-2)!}\ x^{n-2}=\frac{n(n-1)(n-2)(n-3)...1}{(n-2)(n-3)(n-4)...1}\ x^{n-2}={n(n-1)x}^{n-2}
+
+For k=3
+
+\frac{d^3}{{dx}^3}=\frac{n!}{(n-3)!}\ x^{n-3}=\frac{n(n-1)(n-2)(n-3)...1}{(n-3)(n-4)(n-5)...1}\ x^{n-3}={n(n-1)(n-2)x}^{n-3}
+
+If we continue with this process until k = n
+.
+\frac{d^n}{{dx}^n}=\frac{n!}{(n-n)!}\ x^{n-n}=\frac{n!}{0!}x^0=n!\ 
+
+Which is the nth derivative of the power x^n. 
+
+With the above, we now move on to prove the following proposition
+
+
+Let\ a\in\mathbb{R}-0\ \ and\ n\in\mathbb{N}\ then
+
+\int{e^{ax}x^n}dx\ =\ e^{ax}\sum_{k=0}^{n}{{(-1)}^k\frac{1}{a^{k+1}}}\ \frac{n!}{(n-k)!}\ x^{n-k}
+Proof
+
+We are going to take the integral and apply the integration by parts method
+
+\int{e^{ax}x^n}dx
+Let
+u = x^n and dv = e^{ax}
+Then
+du = nx^{n-1}dx and v = \frac{1}{a}e^{ax}
+Now we apply the last part of the method which is
+
+uv-\int v d u
+Indeed
+
+\int{e^{ax}x^n}dx={\frac{1}{a}e^{ax}x}^n-\int{\ \frac{1}{a}e^{ax}nx^{n-1}dx\ =\ {\frac{1}{a}e^{ax}x}^n-\frac{1}{a}n}\int{e^{ax}x^{n-1}}dx\ \mathbf{1})
+
+\ As can be seen on the right side of the equality, we will apply the method again in the next integral, so
+\int{e^{ax}x^{n-1}}dx
+
+u = x^{n-1} and dv = e^{ax}
+
+du = {(n-1)x}^{n-2}dx and v = \frac{1}{a}e^{ax}
+
+{\frac{1}{a}e^{ax}x}^{n-1}-\int{\ \frac{1}{a}e^{ax}{(n-1)x}^{n-2}dx\ =\ {\frac{1}{a}e^{ax}x}^{n-1}-\frac{1}{a}(n-1)}\int{e^{ax}x^{n-2}}dx\ 
+
+Now we put the result above in \mathbf{1}) 
+
+\int{e^{ax}x^n}dx=\ {\frac{1}{a}e^{ax}x}^n-\frac{1}{a}n({\frac{1}{a}e^{ax}x}^{n-1}-\frac{1}{a}(n-1)\int{e^{ax}x^{n-2}}dx\ )
+
+
+Rearranging some terms
+
+\int{e^{ax}x^n}dx=\ {\frac{1}{a}e^{ax}x}^n-{\frac{1}{a^2}e^{ax}nx}^{n-1}+\frac{1}{a^2}n(n-1)\int{e^{ax}x^{n-2}}dx\ \mathbf{2})
+
+Then we have for the integral below
+
+\int{e^{ax}x^{n-2}}dx
+
+u = x^{n-2} and dv = e^{ax}
+
+du = {(n-2)x}^{n-3}dx and v = \frac{1}{a}e^{ax}
+
+{\frac{1}{a}e^{ax}x}^{n-2}-\frac{(n-2)}{a}\int{e^{ax}x^{n-3}}dx\ 
+We put this result in \mathbf{2}) and ordering some terms
+
+\int{e^{ax}x^n}dx=
+{\frac{1}{a}e^{ax}x}^n-{\frac{1}{a^2}e^{ax}nx}^{n-1}+\frac{1}{a^3}e^{ax}n\left(n-1\right)x^{n-2}-\frac{1}{a^3}n\left(n-1\right)\left(n-2\right)\int{e^{ax}x^{n-3}}dx
+
+As can be seen, if we repeat the integration by parts, a pattern begins that relates the order of the derivatives and the power of the term 1/a. Indeed
+
+{\frac{1}{a^{0+1}}e^{ax}\frac{d^0}{{dx}^0}x}^n-{\frac{1}{a^{1+1}}e^{ax}\frac{d^1}{{dx}^1}x}^n+\frac{1}{a^{2+1}}e^{ax}\frac{d^2}{{dx}^2}x^n-\frac{1}{a^3}n\left(n-1\right)\left(n-2\right)\int{e^{ax}x^{n-3}}dx
+
+
+
+
+And we previously saw that we can define the derivative of x^n in factorial terms, so
+{\frac{1}{a^{0+1}}e^{ax}\frac{n!}{(n-0)!}\ x}^n-{\frac{1}{a^{1+1}}e^{ax}\frac{n!}{(n-1)!}\ x}^{n-1}+\frac{1}{a^{2+1}}e^{ax}\frac{n!}{(n-2)!}\ x^{n-2}-\frac{1}{a^3}n\left(n-1\right)\left(n-2\right)\int{e^{ax}x^{n-3}}dx
+
+Finally, we can factorize the term\ e^{ax}\ and the final expression can be expressed as a sum that represents the integral
+
+
+\int{e^{ax}x^n}dx=(e^{ax}\sum_{k=0}^{2}{{(-1)}^k\frac{1}{a^{k+1}}}\ \frac{n!}{(n-k)!}\ x^{n-k})-\frac{1}{a^3}n\left(n-1\right)\left(n-2\right)\int{e^{ax}x^{n-3}}dx
+
+To finish, if we continue developing the final integral with integration by parts, we will reach the final expression that we wanted to demonstrate, which is
+
+\int{e^{ax}x^n}dx\ =\ e^{ax}\sum_{k=0}^{n}{{(-1)}^k\frac{1}{a^{k+1}}}\ \frac{n!}{(n-k)!}\ x^{n-k}
+
+So that we can understand the above, we will try an example choosing n=3
+
+First, we are going to use the traditional method which is integration by parts and then, the proven formula
+
+\int{e^{ax}x^3}dx=
+
+u = x^3 and dv = e^{ax}
+du = {3x}^2dx and v = \frac{1}{a}e^{ax}
+
+x^3\frac{1}{a}e^{ax}-\frac{3}{a}\int{e^{ax}x^2}dx=
+
+u = x^2 and dv = e^{ax}
+du = {2x}^1dx and v = \frac{1}{a}e^{ax}
+
+x^3\frac{1}{a}e^{ax}-\frac{3}{a}\left(x^2\frac{1}{a}e^{ax}-\frac{2}{a}\int{e^{ax}x}dx\right)=
+
+x^3\frac{1}{a}e^{ax}-\frac{3}{a^2}x^2e^{ax}+\frac{3\bullet2}{a^2}\int{e^{ax}x}dx=
+
+u = x and dv = e^{ax}
+du = dx and v = \frac{1}{a}e^{ax}
+
+x^3\frac{1}{a}e^{ax}-\frac{3}{a^2}x^2e^{ax}+\frac{3\bullet2}{a^2}\left(x\frac{1}{a}e^{ax}-\frac{1}{a}\int e^{ax}dx\right)=
+
+x^3\frac{1}{a}e^{ax}-\frac{3}{a^2}x^2e^{ax}+x\frac{3\bullet2\bullet1}{a^3}e^{ax}-\frac{1}{a^3}\int e^{ax}dx=
+
+x^3\frac{1}{a}e^{ax}-\frac{3}{a^2}x^2e^{ax}+x\frac{3\bullet2\bullet1}{a^3}e^{ax}-\frac{3\bullet2\bullet1}{a^4}e^{ax}=
+
+e^{ax}(x^3\frac{1}{a}-\frac{3}{a^2}x^2+x\frac{3\bullet2\bullet1}{a^3}-\frac{3\bullet2\bullet1}{a^4})
+
+If we use the proven expression
+\int{e^{ax}x^3}dx\ =\ e^{ax}\sum_{k=0}^{3}{{(-1)}^k\frac{1}{a^{k+1}}}\ \frac{n!}{(n-k)!}\ x^{n-k}
+
+=\ e^{ax}(\left(-1\right)^0\frac{1}{a^1}\frac{3!}{\left(3-0\right)!}\ x^{3-0}+\left(-1\right)^1\frac{1}{a^2}\frac{3!}{\left(3-1\right)!}\ x^{3-1}+\left(-1\right)^2\frac{1}{a^3}\frac{3!}{\left(3-2\right)!}\ x^{3-2}+\left(-1\right)^3\frac{1}{a^4}\frac{3!}{\left(3-3\right)!}\ x^{3-3}
+
+=\ e^{ax}(x^3\frac{1}{a}-\frac{3}{a^2}x^2+x\frac{3\bullet2\bullet1}{a^3}-\frac{3\bullet2\bullet1}{a^4})
+
+
+
+In conclusion, the resulting expression saves a lot of time when it is necessary to use this method. Also, it is important to emphasize that it is a particular result among the infinite number of integrals that exist but that can be useful in many cases, and it can be implemented in computational processes to optimize the use of RAM since it does not require many steps to reach the result. Finally, I would like to my parents for supporting me and giving me the tools to expand my knowledge.
+    </p>
+ </body>
+</html>
